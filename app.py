@@ -24,6 +24,13 @@ tf.keras.models.save_model(model, 'mnist_model.h5')
 # Cargar el modelo
 model = tf.keras.models.load_model('mnist_model.h5')
 
+model = tf.keras.models.Sequential([
+    # Agregar capas al modelo, por ejemplo:
+    tf.keras.layers.Flatten(input_shape=(28, 28)),
+    tf.keras.layers.Dense(128, activation='relu'),
+    tf.keras.layers.Dropout(0.2),
+    tf.keras.layers.Dense(10, activation='softmax')
+])
 # Resto del código...
 
 
