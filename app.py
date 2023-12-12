@@ -7,14 +7,22 @@ import tensorflow as tf
 import os
 from tensorflow.keras.models import load_model
 
+app = Flask(__name__)
 
-app = Flask(__name__, template_folder='C:\\Users\\yisus\\AppData\\Local\\Programs\\Python\\Python37\\Lib\\site-packages\flask\templates')
+# Crear el modelo
+model = tf.keras.models.Sequential()
+# Agregar capas al modelo...
 
+# Compilar el modelo
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+
+# Guardar el modelo después de compilar
 tf.keras.models.save_model(model, 'mnist_model.h5')
 
+# Cargar el modelo
 model = tf.keras.models.load_model('mnist_model.h5')
 
-# Cargar el modelo
+# Resto del código...
 
 
 @app.route('/')
