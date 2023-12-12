@@ -6,9 +6,11 @@ import io
 import tensorflow as tf
 import os
 from tensorflow.keras.models import load_model
+from flask_cors import CORS
 
 app = Flask(__name__)
 
+CORS(app)
 # Crear el modelo
 model = tf.keras.models.Sequential()
 # Agregar capas al modelo...
