@@ -4,35 +4,30 @@ from PIL import Image
 import numpy as np
 import io
 import tensorflow as tf
-import os
-from tensorflow.keras.models import load_model
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Flatten, Dense, Dropout
+
 from flask_cors import CORS
 
 app = Flask(__name__)
-
 CORS(app)
+
 # Crear el modelo
-model = tf.keras.models.Sequential()
-# Agregar capas al modelo...
+model = Sequential([
+    Flatten(input_shape=(28, 28)),
+    Dense(128, activation='relu'),
+    Dropout(0.2),
+    Dense(10, activation='softmax')
+])
 
 # Compilar el modelo
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
 # Guardar el modelo después de compilar
-tf.keras.models.save_model(model, 'mnist_model.h5')
+model.save('mnist_model.h5')
 
 # Cargar el modelo
 model = tf.keras.models.load_model('mnist_model.h5')
-
-model = tf.keras.models.Sequential([
-    # Agregar capas al modelo, por ejemplo:
-    tf.keras.layers.Flatten(input_shape=(28, 28)),
-    tf.keras.layers.Dense(128, activation='relu'),
-    tf.keras.layers.Dropout(0.2),
-    tf.keras.layers.Dense(10, activation='softmax')
-])
-# Resto del código...
-
 
 @app.route('/')
 def index():
