@@ -23,21 +23,20 @@
         canvas {
             border: 1px solid #000;
         }
-    </style>
+   </style>
 </head>
-  <body>
-    <main>
-      <header>
-        <div class="Encabezado">
-          <nav>
-            <ul class="list-header">
-              <li class="list-img"><img src="Logo.png.jpg"> </li>
-              <li class="titulo">Reconocimiento de escritura</li>
+<body>
+    <header>
+        <img src="https://github.com/ChisusKun/reconocimiento.github.io/blob/fdce3b0a6e8fe54095309b6f4fc43feb60961e7f/Logo.png.jpg" alt="Descripción de la imagen">
+        <h2>Encabezado de tu aplicación</h2>
+    </header>
+
+    <h1>Reconocimiento de escritura</h1>
+    
     <canvas id="drawingCanvas" width="200" height="200"></canvas>
     <br>
     <button onclick="recognizeNumber()">Reconocer</button>
-    <p id="result">Predicción: </p>
-
+    <p id="result">Prediction: </p>
     <script>
         var canvas = new fabric.Canvas('drawingCanvas', { isDrawingMode: true });
 
