@@ -21,11 +21,11 @@
         function recognizeNumber() {
             var imageData = canvas.toDataURL();
 
-            $.get('/recognize', {imageData: imageData}, function(data) {
+            // Modificación aquí: incluir imageData directamente en la URL
+            $.get('/recognize?imageData=' + encodeURIComponent(imageData), function(data) {
                 $('#result').text('Prediction: ' + data.predicted_class);
             });
         }
     </script>
 </body>
 </html>
-
