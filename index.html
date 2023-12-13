@@ -27,11 +27,20 @@
 </head>
 <body>
     <h1>Reconocimiento de escritura</h1>
-    
+     </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="Encabezado">
+          <nav>
+            <ul class="list-header">
+              <li class="list-img"><img src="Logo.png"> </li>
+              <li class="titulo">Reconocimiento de escritura</li>
     <canvas id="drawingCanvas" width="200" height="200"></canvas>
     <br>
     <button onclick="recognizeNumber()">Reconocer</button>
-    <p id="result">Prediction: </p>
+    <p id="result">Predicción: </p>
 
     <script>
         var canvas = new fabric.Canvas('drawingCanvas', { isDrawingMode: true });
