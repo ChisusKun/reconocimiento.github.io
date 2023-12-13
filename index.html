@@ -21,7 +21,7 @@
         function recognizeNumber() {
             var imageData = canvas.toDataURL();
 
-            $.post('/recognize', {imageData: imageData}, function(data) {
+            $.get('/recognize', {imageData: imageData}, function(data) {
                 $('#result').text('Prediction: ' + data.predicted_class);
             });
         }
